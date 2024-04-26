@@ -1,3 +1,5 @@
+import Books from '@/utils/BookDetails/Books'
+import TabComponent from '@/utils/TabComponent/Tab'
 import Link from 'next/link'
 import React from 'react'
 
@@ -5,36 +7,27 @@ const BooksSection = async () => {
 	const res = await fetch('http://localhost:5000/api/chapter', {
 		cache: 'force-cache',
 	})
-	const data = await res.json()
-	// console.log(data)
+	const chapters = await res.json()
+	const response = await fetch('http://localhost:5000/api/books', {
+		cache: 'force-cache',
+	})
+	const books = await response.json()
+
 	return (
 		<div>
-			<div className="mx-auto  ">
-				<div role="tablist" className="tabs mx-auto w-full">
-					<a
-						role="tab"
-						className="tab rounded-ss-xl bg-white- hover:bg-gray-300"
-					>
-						বই
-					</a>
-					<a
-						role="tab"
-						className="tab rounded-se-xl tab-active bg-emerald-600 text-white"
-					>
-						অধ্যায়
-					</a>
-				</div>
+			<div className="mx-auto rounded-xl ">
+				<TabComponent chapters={chapters} books={books} />
 
-				<div className=" flex m-4 justify-center mx-auto">
+				{/* <div className=" flex m-4 justify-center mx-auto">
 					<input
 						type="text"
 						name="search"
 						placeholder="Search"
 						className="border-2 rounded-md p-1 h-8 w-44"
 					/>
-				</div>
+				</div> */}
 			</div>
-			<div className="bg-emerald-100 m-2 p-4 rounded-xl">
+			{/* <div className="bg-emerald-100 m-2 p-4 rounded-xl">
 				{data.map(value => (
 					<Link href={`/bukhari/${value.id}`} key={value.id}>
 						<div className="flex items-center -ml-2">
@@ -58,7 +51,9 @@ const BooksSection = async () => {
 						</div>
 					</Link>
 				))}
-			</div>
+			</div> */}
+
+			<Books />
 		</div>
 	)
 }

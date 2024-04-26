@@ -1,31 +1,36 @@
 'use client'
 import { useState } from 'react'
 
-const TabComponent = () => {
-	// State to track the active tab index
+const TabComponent = ({ books, chapters }) => {
 	const [activeTab, setActiveTab] = useState(0)
 
-	// Function to handle tab click and set the active tab
 	const handleTabClick = index => {
 		setActiveTab(index)
 	}
 
-	// Define your tab data with labels
 	const tabsData = [
-		{ label: 'বই', content: 'Content for বই tab' },
-		{ label: 'অধ্যায়', content: 'Content for অধ্যায় tab' },
+		{ label: 'বই', content: books },
+		{ label: 'অধ্যায়', content: chapters },
 	]
 
+	// console.log(tabsData[activeTab])
 	return (
 		<div>
-			{/* Tab navigation */}
-			<div role="tablist" className="tabs mx-auto w-full">
+			<div role="tablist" className="tabs mx-auto w-full rounded-xl">
 				{tabsData.map((tab, index) => (
 					<a
 						key={index}
 						role="tab"
 						className={`tab ${
-							activeTab === index ? 'tab-active bg-emerald-400' : ''
+							index === 0
+								? 'rounded-ss-xl'
+								: index === 1
+								? 'rounded-se-xl'
+								: ''
+						} ${
+							activeTab === index
+								? 'tab-active text-white bg-emerald-600'
+								: ''
 						}`}
 						onClick={() => handleTabClick(index)}
 					>
@@ -33,9 +38,17 @@ const TabComponent = () => {
 					</a>
 				))}
 			</div>
+			<div className=" flex m-4 justify-center mx-auto">
+				<input
+					type="text"
+					name="search"
+					placeholder="Search"
+					className="border-2 rounded-md p-1 h-8 w-44"
+				/>
+			</div>
 
+			{/* <div className="">{tabsData[activeTab].content.title}</div> */}
 			{/* Tab content */}
-			<div className="tab-content">{tabsData[activeTab].content}</div>
 		</div>
 	)
 }

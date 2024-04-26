@@ -1,6 +1,7 @@
 import HadisSection from '@/components/UI/HadisSection'
 
-const HomePage = () => {
+const HomePage = ({ params }) => {
+	// console.log(params.bukhariId)
 	return (
 		// <div className="grid h-screen grid-flow-col gap-3 grid-cols-1 lg:grid-cols-12 w-full bg-gray-200 p-3 mt-3 rounded-ss-2xl">
 		// 	{/* <Navbar /> */}
@@ -8,7 +9,8 @@ const HomePage = () => {
 		// 	{/* <LeftMenu className="col-span-1" /> */}
 		//
 		<div>
-			<HadisSection />
+			<HadisSection id={params.bukhariId} />
+			Bukhari details
 		</div>
 		// </div>
 		// </div>

@@ -1,6 +1,4 @@
-import HadisSection from '@/components/UI/HadisSection'
 import BooksDetails from '@/utils/BookDetails/BooksDetails'
-import HadisDetails from '@/utils/HadisDetails/HadisDetails.'
 
 const BookChapterPage = async () => {
 	const res = await fetch('http://localhost:5000/api/books', {
@@ -8,7 +6,9 @@ const BookChapterPage = async () => {
 	})
 	const books = await res.json()
 
-	const response = await fetch('http://localhost:5000/api/chapter')
+	const response = await fetch('http://localhost:5000/api/chapter', {
+		cache: 'force-cache',
+	})
 	const chapters = await response.json()
 	// console.log(books)
 	return (
