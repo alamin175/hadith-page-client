@@ -4,7 +4,7 @@ import { MdOutlineWidgets } from 'react-icons/md'
 const LeftMenu = () => {
 	return (
 		<div>
-			<div className="flex flex-col gap-7 text-xl m-4 mt-28  ">
+			<div className="flex flex-col gap-7 text-xl m-4 mt-28 bg-white ">
 				<FaHome />
 				<GiBookshelf />
 				<FaBookOpen />
