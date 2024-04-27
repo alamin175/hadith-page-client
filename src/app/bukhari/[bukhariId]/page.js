@@ -10,7 +10,6 @@ const HomePage = ({ params }) => {
 		//
 		<div>
 			<HadisSection id={params.bukhariId} />
-			Bukhari details
 		</div>
 		// </div>
 		// </div>
