@@ -95,7 +95,7 @@ const HadisSection = async ({ id }) => {
 							<div>
 								<p className="text-[10px] font-bold">
 									হাদিসের মান :{' '}
-									<span className="bg-[#46B891] p-[6px] rounded-md text-white font-bold text-[8px]">
+									<span className="cursor-pointer bg-[#46B891] p-[6px] rounded-md text-white font-bold text-[8px]">
 										{hadith.grade}
 									</span>
 								</p>

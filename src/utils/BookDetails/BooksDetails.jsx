@@ -1,4 +1,3 @@
-import React from 'react'
 import { GiBookshelf } from 'react-icons/gi'
 import SeeMore from '../SeeMore'
 import Link from 'next/link'

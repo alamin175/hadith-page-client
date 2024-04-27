@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
-			<body className={`${inter.className} `}>
+			<body className={`overflow-hidden ${inter.className} `}>
 				<div className="max-w-screen-lg mx-auto">
 					<Navbar />
 					<div className="flex">

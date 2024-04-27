@@ -1,5 +1,4 @@
 import SizeRange from '@/utils/SizeRange'
-import React from 'react'
 
 const Settings = () => {
 	const rangeValue = value => {

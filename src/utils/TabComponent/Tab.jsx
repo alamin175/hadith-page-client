@@ -1,7 +1,5 @@
 'use client'
 import { useState } from 'react'
-import Books from '../BookDetails/Books'
-import HadisDetails from '../HadisDetails/HadisDetails.'
 import Link from 'next/link'
 
 const TabComponent = ({ books, chapters }) => {
@@ -44,8 +42,8 @@ const TabComponent = ({ books, chapters }) => {
 				<input
 					type="text"
 					name="search"
-					placeholder="Search"
-					className="border-2 rounded-md p-1 h-8 w-44"
+					placeholder="Search for filter"
+					className="border-2 rounded-md p-1 text-sm bg-gray-100 mx-2 h-8 w-full"
 				/>
 			</div>
 			<div>
@@ -105,9 +103,6 @@ const TabComponent = ({ books, chapters }) => {
 					</div>
 				))}
 			</div>
-
-			{/* <div className="">{tabsData[activeTab].content.title}</div> */}
-			{/* Tab content */}
 		</div>
 	)
 }

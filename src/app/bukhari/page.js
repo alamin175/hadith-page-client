@@ -1,18 +1,13 @@
-import HadisSection from '@/components/UI/HadisSection'
+import { getBooks } from '@/getAllData/getBooksData'
+import { getChapterData } from '@/getAllData/getChapterData'
 import BooksDetails from '@/utils/BookDetails/BooksDetails'
-import HadisDetails from '@/utils/HadisDetails/HadisDetails.'
 
 const BookChapterPage = async () => {
-	const res = await fetch('http://localhost:5000/api/books', {
-		cache: 'force-cache',
-	})
-	const books = await res.json()
+	const books = await getBooks()
+	const chapters = await getChapterData()
 
-	const response = await fetch('http://localhost:5000/api/chapter')
-	const chapters = await response.json()
-	// console.log(books)
 	return (
-		<div className=" bg-white rounded-t-xl">
+		<div className="bg-white h-screen">
 			<BooksDetails books={books} chapters={chapters} />
 		</div>
 	)

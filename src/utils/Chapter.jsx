@@ -1,14 +1,12 @@
+import { getChapterData } from '@/getAllData/getChapterData'
 import Link from 'next/link'
 import React from 'react'
 
 const Chapter = async () => {
-	const res = await fetch('http://localhost:5000/api/chapter', {
-		cache: 'force-cache',
-	})
-	const data = await res.json()
+	const chapter = await getChapterData()
 	return (
 		<div className="bg-emerald-100 m-2 p-4 rounded-xl">
-			{data.map(value => (
+			{chapter.map(value => (
 				<Link href={`/bukhari/${value.id}`} key={value.id}>
 					<div className="flex items-center -ml-2">
 						<p
