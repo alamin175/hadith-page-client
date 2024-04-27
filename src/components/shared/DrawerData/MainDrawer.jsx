@@ -11,11 +11,11 @@ const MainDrawer = () => {
 	const [chapters, setChapters] = useState([])
 	// console.log(chapters)
 	useEffect(() => {
-		fetch('http://localhost:5000/api/books')
+		fetch('https://hadith-page-server.onrender.com/books')
 			.then(res => res.json())
 			.then(data => setBooks(data))
 
-		fetch('http://localhost:5000/api/chapter')
+		fetch('https://hadith-page-server.onrender.com/chapter')
 			.then(res => res.json())
 			.then(data => setChapters(data))
 	}, [])

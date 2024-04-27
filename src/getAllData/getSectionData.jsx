@@ -1,5 +1,5 @@
 export const getSection = async () => {
-	const res = await fetch('http://localhost:5000/api/section', {
+	const res = await fetch('https://hadith-page-server.onrender.com/section', {
 		cache: 'force-cache',
 	})
 	return res.json()
