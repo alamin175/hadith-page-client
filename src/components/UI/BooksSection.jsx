@@ -1,17 +1,11 @@
-import Books from '@/utils/BookDetails/Books'
+import { getBooks } from '@/getAllData/getBooksData'
+import { getChapterData } from '@/getAllData/getChapterData'
 import TabComponent from '@/utils/TabComponent/Tab'
-import Link from 'next/link'
 import React from 'react'
 
 const BooksSection = async () => {
-	const res = await fetch('http://localhost:5000/api/chapter', {
-		cache: 'force-cache',
-	})
-	const chapters = await res.json()
-	const response = await fetch('http://localhost:5000/api/books', {
-		cache: 'force-cache',
-	})
-	const books = await response.json()
+	const chapters = await getChapterData()
+	const books = await getBooks()
 
 	return (
 		<div>
@@ -53,7 +47,7 @@ const BooksSection = async () => {
 				))}
 			</div> */}
 
-			<Books />
+			{/* <Books /> */}
 		</div>
 	)
 }
