@@ -84,7 +84,7 @@ const HadisSection = async ({ id }) => {
 								<span className="text-sm">{hadith.hadith_id}</span>
 							</p>
 							<p>{hadith.ar}</p>
-							<p className="my-3 text-[12px] text-emerald-600">
+							<p className="my-4 font-bold mt-8 text-[12px] text-emerald-600">
 								{hadith.narrator} থেকে বর্ণিত :
 							</p>
 							<p className="text-[14px] leading-loose mb-8 font-medium">
