@@ -7,6 +7,7 @@ import { getChapter } from '@/getAllData/getChapterData'
 import { getSingleBook } from '@/getAllData/getBooksData'
 import { getSection } from '@/getAllData/getSectionData'
 import { IoBookOutline } from 'react-icons/io5'
+import MainDrawer from '../shared/DrawerData/MainDrawer'
 
 const HadisSection = async ({ id }) => {
 	const hadithDetails = await getHadis()
@@ -30,10 +31,11 @@ const HadisSection = async ({ id }) => {
 
 			<div className="bg-white flex items-center justify-between p-4 rounded-b-xl">
 				<div className="flex items-center gap-4">
-					<GiBookshelf className="-rotate-90 text-3xl text-emerald-500" />
+					<div className="  md:hidden">{<MainDrawer />}</div>
+					<GiBookshelf className="hidden md:block -rotate-90 text-3xl text-emerald-500" />
 					<div>
 						<p>{book.title}</p>
-						<p className="text-[9px] mt-1">
+						<p className="hidden md:block text-[9px] mt-1">
 							সর্বমোট হাদিস - {book.number_of_hadis}
 						</p>
 					</div>
