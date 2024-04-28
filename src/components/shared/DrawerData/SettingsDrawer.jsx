@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Settings from '../Settings'
 import { CiSettings } from 'react-icons/ci'
 import Drawer from 'react-modern-drawer'
-// import 'react-modern-drawer/dist/index.css'
+import 'react-modern-drawer/dist/index.css'
 
 const SettingsDrawer = () => {
 	const [isOpen, setIsOpen] = useState(false)

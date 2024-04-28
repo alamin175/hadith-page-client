@@ -23,6 +23,7 @@ const HadisSection = async ({ id }) => {
 
 	return (
 		<div>
+			{/* <MainDrawer /> */}
 			<div className="flex items-center p-2 px-4 gap-1 bg-gray-100 text-gray-500 text-sm rounded-t-xl">
 				<GiBookshelf /> {'>'} <span>Bukhari</span> {'>'} <span>1</span>
 			</div>
@@ -32,6 +33,7 @@ const HadisSection = async ({ id }) => {
 			<div className="bg-white flex items-center justify-between p-4 rounded-b-xl">
 				<div className="flex items-center gap-4">
 					<div className="  md:hidden">{<MainDrawer />}</div>
+
 					<GiBookshelf className="hidden md:block -rotate-90 text-3xl text-emerald-500" />
 					<div>
 						<p>{book.title}</p>

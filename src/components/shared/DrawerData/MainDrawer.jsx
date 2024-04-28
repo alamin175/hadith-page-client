@@ -1,48 +1,34 @@
-'use client'
-import { useEffect, useState } from 'react'
-import Drawer from 'react-modern-drawer'
-import 'react-modern-drawer/dist/index.css'
-import { IoMenu } from 'react-icons/io5'
+import { getBooks } from '@/getAllData/getBooksData'
+import { getChapterData } from '@/getAllData/getChapterData'
 import TabComponent from '@/utils/TabComponent/Tab'
+import { IoMenu } from 'react-icons/io5'
 
-const MainDrawer = () => {
-	const [isOpen, setIsOpen] = useState(false)
-	const [books, setBooks] = useState([])
-	const [chapters, setChapters] = useState([])
-	// console.log(chapters)
-	useEffect(() => {
-		fetch('https://hadith-page-server.onrender.com/books')
-			.then(res => res.json())
-			.then(data => setBooks(data))
-
-		fetch('https://hadith-page-server.onrender.com/chapter')
-			.then(res => res.json())
-			.then(data => setChapters(data))
-	}, [])
-
-	const toggleDrawer = () => {
-		setIsOpen(prevState => !prevState)
-	}
-
+const MainDrawer = async () => {
+	const chapters = await getChapterData()
+	const books = await getBooks()
 	return (
 		<div>
-			<button onClick={toggleDrawer} className="text-2xl">
-				<IoMenu />
-			</button>
-			<Drawer
-				open={isOpen}
-				onClose={toggleDrawer}
-				direction="left"
-				className="bla bla bla"
-			>
-				<div className="flex justify-between items-center p-3">
-					<p>ক্যাটাগরি</p>
-					<button onClick={toggleDrawer} className="text-2xl">
-						x
-					</button>
+			<div className="drawer">
+				<input id="my-drawer" type="checkbox" className="drawer-toggle" />
+				<div className="drawer-content">
+					{/* Page content */}
+					<label htmlFor="my-drawer" className=" drawer-button">
+						<IoMenu />
+					</label>
 				</div>
-				<TabComponent chapters={chapters} books={books} />
-			</Drawer>
+				<div className="drawer-side w-full">
+					<label
+						htmlFor="my-drawer"
+						aria-label="close sidebar"
+						className="drawer-overlay"
+					></label>
+					{/* Sidebar content */}
+
+					<div className="min-h-full bg-white">
+						<TabComponent books={books} chapters={chapters} />
+					</div>
+				</div>
+			</div>
 		</div>
 	)
 }

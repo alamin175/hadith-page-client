@@ -3,7 +3,6 @@ import homeIcon from '@/assets/images/home-logo.png'
 import { FaHandHoldingHeart, FaSearch } from 'react-icons/fa'
 import Link from 'next/link'
 import SettingsDrawer from '../shared/DrawerData/SettingsDrawer'
-import { CiSettings } from 'react-icons/ci'
 
 const Navbar = () => {
 	return (

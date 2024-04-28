@@ -1,6 +1,7 @@
 import { GiBookshelf } from 'react-icons/gi'
 import SeeMore from '../SeeMore'
 import Link from 'next/link'
+import MainDrawer from '@/components/shared/DrawerData/MainDrawer'
 
 const BooksDetails = ({ books, chapters }) => {
 	return (
@@ -13,6 +14,13 @@ const BooksDetails = ({ books, chapters }) => {
 							{book.book_name.charAt(0).toUpperCase() +
 								book.book_name.slice(1)}
 						</span>{' '}
+					</div>
+					<div className="flex md:hidden z-30 bg-gray-100  items-center gap-4 my-2 p-2">
+						<div className="z-50  md:hidden">{<MainDrawer />}</div>
+
+						<div>
+							<p>{book.title}</p>
+						</div>
 					</div>
 					<div className="m-4 ">
 						<div className="flex justify-between mt-6 mb-4 items-center">
@@ -37,7 +45,7 @@ const BooksDetails = ({ books, chapters }) => {
 								>
 									<div className="flex items-center gap-3">
 										<p
-											className="bg-emerald-600  p-2 px-3 rounded-3xl text-white"
+											className="bg-emerald-600 z-10 p-2 px-3 rounded-3xl text-white"
 											style={{
 												clipPath:
 													'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
